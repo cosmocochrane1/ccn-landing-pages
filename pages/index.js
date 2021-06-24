@@ -185,7 +185,7 @@ export default class PatientLanding extends React.Component {
           <div className={'mt-5'}><StyledInput className={'mt-3'} label={"Last Name"} handleChange={this.handleChange} value={lastName} type="text" name="lastName" /></div>
           <div className={'mt-5'}><StyledInput className={'mt-3'} label={"Phone"} handleChange={this.handleChange} value={phone} type="text" name="phone" /></div>
           <div className={'mt-5'}><StyledInput  label={"Email"} handleChange={this.handleChange} value={email} type="text" name="email" /></div>
-          {/* <RoundButton onClick={() => this.submitForm()} className={'submit-button bg-white text-blue mt-9'}>{isLoading ? <ButtonLoader type={'dark'}/> : `Submit`}</RoundButton> */}
+          <RoundButton onClick={() => this.submitForm()} className={'submit-button bg-white text-blue mt-9'}>{isLoading ? <ButtonLoader type={'dark'}/> : `Submit`}</RoundButton>
           {successfulSent ? <SuccessMessage>Thank you! We'll reach out shortly.</SuccessMessage> : null}
           {error ? <SuccessMessage>Oops! Something went wrong. Try emailing us at info@careconnectionnetworks.com</SuccessMessage> : null}
         </InputContainer>
