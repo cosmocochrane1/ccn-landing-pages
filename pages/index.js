@@ -48,14 +48,10 @@ export default class PatientLanding extends React.Component {
           <SizeWrapper>
           <InnerSectionOne className={'pt-7'}>
           <h1 className={'main-text text-lightBlack  font-inter'}>Free Blood Pressure Monitoring Now Available to <span className={'underline'}>Laguna Beach</span> Seniors</h1>
-          
           <h1 className={'subtext mt-7 text-darkGrey'}>Over 75% of seniors have high blood pressure aka <span className={'underline text-lightBlack'}>The Silent Killer</span> - there are no obvious symptoms to indicate something is wrong.</h1>
           <h1 className={'subtext mt-7 text-darkGrey'}>We've partnered with Laguna Cardiology's <span className={'underline text-lightBlack'}>Dr. Dawn Atwal</span> to offer free wireless blood pressure monitoring to all <span className={'underline text-lightBlack'}>Laguna Beach Medicare members</span></h1>
-
-          {/* <div><h1 className={'subtext  mt-7'}>You receive a free, wireless blood pressure monitor. Take a reading and it is immediately uploaded for review by your doctor. It couldn't be easier.</h1></div> */}
           <div className={'w-full flex-end justify-between'}><span /><RoundButtonLarge   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth",block: "center", inline: "nearest"})}   className={'bg-blue mt-7'}>Get Started</RoundButtonLarge></div>
           </InnerSectionOne>
-
           <InnerSectionRight>
             <SideForm className={'bg-blue'}>
               <img src={'/hypertension/laguna-beach.png'} />
@@ -80,30 +76,27 @@ export default class PatientLanding extends React.Component {
         <div id={'what-is'} className={'mt-0  bg-darkBlue'}>
         <MarketingSection className={'  min-h-1 pb-2'}>
           <HowItWorks className={' '}>
-            <p className={'xl-large w-6/12	text-white pb-7 pt-8'}>How It Works</p>
+            <p className={'xl-large title text-white pb-7 pt-8'}>How It Works</p>
             <HowToSection>
-            <TextMarketingSection>
-            <p className={'medium text-white'}>Step One</p>
+            <TextMarketingSection className={'steps'}>
+            <p className={'font-light medium text-white mb-3'}>Step One</p>
             <p className={'large mt-0 text-white'}>You Receive a Free Wireless Blood Pressure Monitor</p>
-            {/* <p className={'medium mt-0 text-white'}>No phones or apps necessary.</p> */}
           </TextMarketingSection>
           </HowToSection>
           <HowToSection>
           <div />
-          <TextMarketingSection className={'text-right'}>
-            <p className={'medium  text-white'}>Step Two</p>
+          <TextMarketingSection className={'text-right steps'}>
+            <p className={'font-light medium text-white mb-3'}>Step Two</p>
             <p className={'large mt-0 text-white'}>Take a reading and it will instantly upload directly to your doctor for review</p>
-            {/* <p className={'medium mt-0 text-white'}>Any abnormalities will immediately be addressed.</p> */}
           </TextMarketingSection>
           </HowToSection>
           <HowToSection>
-          <TextMarketingSection>
-            <p className={'medium text-white'}>Step Three</p>
+          <TextMarketingSection className={'steps'}>
+            <p className={'font-light medium text-white mb-3'}>Step Three</p>
             <p className={'large mt-0 text-white'}>If A Reading Exceeds A Predefined Threshhold Your Doctor is Ready to respond.</p>
-            {/* <p className={'medium mt-0 text-white'}>Take a regular blood pressure reading and have your reading immediately available to your physisican.</p> */}
           </TextMarketingSection>
           </HowToSection>
-            <div className={'w-full justify-between flex'}><span /><RoundButtonLarge   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth",block: "center", inline: "nearest"})}   className={'bg-orange mt-7'}>Get Started</RoundButtonLarge></div>
+            <div className={'w-full button justify-between flex'}><span /><RoundButtonLarge   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth",block: "center", inline: "nearest"})}   className={'bg-orange mt-7'}>Get Started</RoundButtonLarge></div>
           </HowItWorks>
         </MarketingSection>
         </div>
@@ -153,9 +146,9 @@ export default class PatientLanding extends React.Component {
 
 
         <div id={'about'} className={' mt-0 pt-6  bg-landingPageGrey '}>
-        <MarketingSection className={'  pt-2 min-h-1 pb-2'}>
+        <MarketingSection className={'pt-2 min-h-1 pb-2'}>
           <JoinNowSection className={' '}>
-            <div className={'flex items-center flex-between'}>
+            <div className={' align-center  flex m-auto items-center flex-between '}>
               <p className={'xl-large w-8/12	 text-lightBlack mt-5'}>Laguna Cardiology's<br /> Dr. Dawn Atwal</p>
               <SurgeonGeneral className={'ml-8 pb-5'} src={'/hypertension/dr-atwal.png'} />
             </div>
@@ -242,6 +235,14 @@ const PartnerLogos = styled.div`
   }
   .laguna-cardiology {
     height: 70px;
+  }
+  @media(max-width: 800px){
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    img:last-of-type {
+      margin-top: 50px;
+    }
   }
 `
 const SeparatorLine = styled.div`
@@ -469,7 +470,34 @@ const JoinNowSection = styled.div`
 
 
 const HowItWorks = styled(JoinNowSection)`
-max-width: 930px !important
+  max-width: 930px !important;
+  .button {
+    @media(max-width: 800px){
+      span {
+        display: none;
+      }
+      button {
+        margin:auto;
+      }
+      
+    }
+  }
+  .steps {
+    @media(max-width: 800px){
+      margin: auto;
+      margin-top: 65px !important;
+    }
+  }
+  .title {
+    width: 50%; 
+    
+    @media(max-width:800px){
+      width: 100% !important;
+      text-align: center;
+      padding-bottom: 0px !important;
+    }
+
+  }
 `
 
 const ImageSection = styled.div`
