@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import Layout from '@/components/layouts/landing-page-layout'
+import ButtonLoader from '@/components/button-loader'
 
 import { useState } from 'react'
 import { GrClose } from 'react-icons/gr'
