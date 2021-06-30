@@ -5,4 +5,4 @@ const config = {
   }
 }
 
-module.exports = withOffline(config)
+module.exports = config
