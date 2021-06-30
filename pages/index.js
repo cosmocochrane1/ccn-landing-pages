@@ -19,7 +19,9 @@ export default class PatientLanding extends React.Component {
     error: false
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    console.log(process.env.NEXT_PUBLIC_BASE_URL, "COSS!")
+  }
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value })
