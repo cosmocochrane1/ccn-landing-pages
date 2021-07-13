@@ -20,7 +20,8 @@ export default class PatientLanding extends React.Component {
   }
 
   componentDidMount() {
-    console.log(process.env.NEXT_PUBLIC_BASE_URL, "COSS!")
+
+    console.log(this.props)
   }
 
   handleChange = event => {
@@ -41,23 +42,23 @@ export default class PatientLanding extends React.Component {
 
   render() {
     const { isOpen, error, firstName, successfulSent, isLoading, lastName, email, phone } = this.state
+    const { landing_page_info = {} } = this.props
     return (
       <>
       <Layout  hideFooter={true} {...this.props}>
         <PageContentContainer>
         <TopSection className={'pb-6'}>
-        
 
           <SizeWrapper>
           <InnerSectionOne className={'pt-7'}>
-          <h1 className={'main-text text-lightBlack  font-inter'}>Free Blood Pressure Monitoring Now Available to <span className={'underline'}>Laguna Beach</span> Seniors</h1>
+          <h1 className={'main-text text-lightBlack  font-inter'}>Free Blood Pressure Monitoring Now Available to <span className={'underline'}>{landing_page_info.city}</span> Seniors</h1>
           <h1 className={'subtext mt-7 text-darkGrey'}>Over 75% of seniors have high blood pressure aka <span className={'underline text-lightBlack'}>The Silent Killer</span> - there are no obvious symptoms to indicate something is wrong.</h1>
-          <h1 className={'subtext mt-7 text-darkGrey'}>We've partnered with Laguna Cardiology's <span className={'underline text-lightBlack'}>Dr. Dawn Atwal</span> to offer free wireless blood pressure monitoring to all <span className={'underline text-lightBlack'}>Laguna Beach Medicare members</span></h1>
+          <h1 className={'subtext mt-7 text-darkGrey'}>We've partnered with Laguna Cardiology's <span className={'underline text-lightBlack'}>Dr. Dawn Atwal</span> to offer free wireless blood pressure monitoring to all <span className={'underline text-lightBlack'}>{landing_page_info.city} Medicare members</span></h1>
           <div className={'w-full flex-end justify-between'}><span /><RoundButtonLarge   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth",block: "center", inline: "nearest"})}   className={'bg-blue mt-7'}>Get Started</RoundButtonLarge></div>
           </InnerSectionOne>
           <InnerSectionRight>
             <SideForm className={'bg-blue'}>
-              <img src={'/hypertension/laguna-beach.png'} />
+              <img src={`/city/${landing_page_info.city_image}.png`} />
             </SideForm>
           </InnerSectionRight>
         
@@ -69,10 +70,9 @@ export default class PatientLanding extends React.Component {
         </TopSection>
         <PartnershipSection>
           <p className={'title'}>OUR PARTNERS</p>
-          <p className={'subheader text-black'}>In partnership with Laguna Cardiology’s Dr. Dawn Atwal and hometown nonprofit Lifelong Laguna we’re doing our part to meet the challenges that can come with time in the town we love.</p>
+          <p className={'subheader text-black'}>{landing_page_info.partner_text}</p>
           <PartnerLogos>
-            <img className={'laguna-cardiology'} src={'/hypertension/laguna-cardiology.png'} />
-            <img src={'/hypertension/life-long-laguna.png'} />
+            {landing_page_info.partner_logos.map((i) => <img className={`${i}`} src={`/partner_logos/${i}.png`} />)}
           </PartnerLogos>
         </PartnershipSection>
         
@@ -238,6 +238,7 @@ const PartnerLogos = styled.div`
   }
   .laguna-cardiology {
     height: 70px;
+    max-width: 200px;
   }
   @media(max-width: 800px){
     display: flex;
