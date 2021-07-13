@@ -5,13 +5,25 @@ import App from 'next/app'
 import Head from 'next/head'
 import { axiosRequestSettings } from '@/lib/axios-configurations'
 
+import { get_landing_page_info } from '@/lib/landing-page-utilities'
+
+
+
+
 axiosRequestSettings()
 export default class MyApp extends App {
+
+  static async getInitialProps(ctx) {
+      const landing_page_info = {
+          landing_page_info: get_landing_page_info(ctx.ctx.req.headers.host)
+      }
+      return landing_page_info
+  }
 
   componentDidMount = async () => {};
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps, landing_page_info } = this.props
 
     return (
       <React.Fragment>
@@ -20,13 +32,10 @@ export default class MyApp extends App {
         <link async crossOrigin="anonymous" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400;1,500;1,900&display=swap" rel="stylesheet" />
 
         </Head>    
-        <Component {...pageProps } />
+        <Component {...pageProps } landing_page_info={landing_page_info} />
       </React.Fragment>
     )
   }
 }
-
-
-
 
 
