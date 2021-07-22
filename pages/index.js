@@ -83,7 +83,7 @@ export default class PatientLanding extends React.Component {
             <HowToSection>
             <TextMarketingSection className={'steps'}>
             <p className={'font-light medium text-white mb-3'}>Step One</p>
-            <p className={'large mt-0 text-white'}>You Receive a Free Wireless Blood Pressure Monitor</p>
+            <p className={'large mt-0 text-white'}>You receive a free wireless blood pressure monitor.</p>
           </TextMarketingSection>
           </HowToSection>
           <HowToSection>
@@ -96,7 +96,7 @@ export default class PatientLanding extends React.Component {
           <HowToSection>
           <TextMarketingSection className={'steps'}>
             <p className={'font-light medium text-white mb-3'}>Step Three</p>
-            <p className={'large mt-0 text-white'}>If A Reading Exceeds A Predefined Threshhold Your Doctor is Ready to respond.</p>
+            <p className={'large mt-0 text-white'}>If a reading exceeds a predefined threshhold your doctor is ready to respond.</p>
           </TextMarketingSection>
           </HowToSection>
             <div className={'w-full button justify-between flex'}><span /><RoundButtonLarge   onClick={() => document.getElementById('contact').scrollIntoView({ behavior: "smooth",block: "center", inline: "nearest"})}   className={'bg-orange mt-7'}>Get Started</RoundButtonLarge></div>
